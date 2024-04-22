@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>환경</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    
+    <style>
+        /* 지도를 담을 컨테이너의 스타일 설정 */
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">로고</div> <!-- 로고 -->
+        <nav>
+            <ul> <!-- 메뉴 탭만 남김 -->
+                <li><span class="welcome-text">어서오세요!</span></li>
+            </ul>
+        </nav>
+        <!-- 검색창 추가 -->
+        <div class="search-bar">
+            <input type="text" placeholder="검색어를 입력하세요">
+            <button><img src="./img/search.png" alt="Search"></button>
+        </div>
+    </header>
+    <div class="banner" id="visitZeroWasteShopBanner">
+        <div class="banner-content">
+            <a href="#" id="visitZeroWasteShop">제로웨이스트샵 보러가기</a>
+        </div>
+    </div>
+
+    <div class="banner" id="startGameBanner">
+        <div class="banner-content">
+            <button id="startGame">게임 시작하기</button>
+        </div>
+    </div>
+    
+
+    <footer>
+        푸터 영역
+    </footer>
+
+    <script>
+        document.getElementById('visitZeroWasteShop').addEventListener('click', function() {
+            // 새 창에서 지도를 열기 위해 window.open 사용
+            window.open('map.html', '_blank');
+        });
+    </script>
+</body>
+</html>
