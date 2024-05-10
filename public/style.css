@@ -1,6 +1,11 @@
 * {
   box-sizing: border-box;
 }
+/* 링크 스타일 제거 */
+#logo-link {
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit; /* 기본 색상으로 설정 */
+}
 
 ul {
   margin: 0;

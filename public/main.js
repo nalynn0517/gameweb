@@ -1,3 +1,11 @@
+// JavaScript로 밑줄 제거 및 페이지 이동 처리
+document.getElementById("logo-link").addEventListener("click", function(event) {
+    // 기본 동작인 페이지 이동을 취소
+    event.preventDefault();
+    // 페이지 이동
+    window.location.href = this.getAttribute("href");
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     // 카카오맵 API 키
     const kakaoApiKey = '8948120168a32c7a96068b04adbb1558';
