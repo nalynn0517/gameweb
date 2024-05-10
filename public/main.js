@@ -40,12 +40,12 @@ function showZeroWasteStores(map) {
 
     // 제로 웨이스트 샵 마커 이미지
     const markerImages = {
-        경기: new kakao.maps.MarkerImage('img/m1.png', new kakao.maps.Size(20, 30)),
-        서울: new kakao.maps.MarkerImage('img/m2.png', new kakao.maps.Size(20, 30)),
-        충청: new kakao.maps.MarkerImage('img/m3.png', new kakao.maps.Size(20, 30)),
-        전라: new kakao.maps.MarkerImage('img/m4.png', new kakao.maps.Size(20, 30)),
-        강원: new kakao.maps.MarkerImage('img/m5.png', new kakao.maps.Size(20, 30)), 
-        경상: new kakao.maps.MarkerImage('img/m6.png', new kakao.maps.Size(20, 30)),
+        경기: new kakao.maps.MarkerImage('img/m1.png', new kakao.maps.Size(18, 30)),
+        서울: new kakao.maps.MarkerImage('img/m2.png', new kakao.maps.Size(18, 30)),
+        충청: new kakao.maps.MarkerImage('img/m3.png', new kakao.maps.Size(18, 30)),
+        전라: new kakao.maps.MarkerImage('img/m4.png', new kakao.maps.Size(18, 30)),
+        강원: new kakao.maps.MarkerImage('img/m5.png', new kakao.maps.Size(18, 30)), 
+        경상: new kakao.maps.MarkerImage('img/m6.png', new kakao.maps.Size(18, 30)),
     };
 
     // 제로 웨이스트 샵 정보 반복해서 처리
