@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>환경</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    
+    <style>
+        /* 지도를 담을 컨테이너의 스타일 설정 */
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html">로고</a></div> <!-- 로고 -->
+        <nav>
+            <ul> <!-- 메뉴 4개 -->
+                <li><a href="#section1">재활용 통계</a></li>
+                <li><a href="./recyclePage/recycle.html">분리수거 정보</a></li>
+                <li><a href="map.html" id="showMap">오프라인 제로웨이스트샵</a></li> <!-- ID 추가 -->
+                <li><a href="quest.html">자주 묻는 질문</a></li>
+            </ul>
+        </nav>
+        <!-- 검색창 추가 -->
+        <div class="search-bar">
+            <input type="text" placeholder="검색어를 입력하세요">
+            <button><img src="./img/search.png" alt="Search"></button>
+        </div>
+    </header>
+
+    <div class="banner-section">
+        <div class="banner1">배너1</div>
+
+        <div class="banner2">
+            <div class="image-container">
+                <img src="img/grapht2.png" alt="쓰레기 총량 그래프">
+            </div>
+            <div class="text-container">
+                <h2>쓰레기 총량 그래프</h2>
+                <p>총량 대비 재활용 비율</p>
+                <p>2018년부터 2022년 5개년 데이터</p>
+            </div>
+        </div>  
+
+        <div class="banner3">
+            <h1 style="color: #004d40; font-size: 38px;">올바른 분리수거 배출 가이드</h1>
+            <div class="category-container">
+                <!-- 카테고리 1 -->
+                <div class="category-box" onclick="window.location.href='다른페이지의URL1'">
+                    <div class="category-title">종이</div>
+                    <img class="image" src="img/paper.png" alt="paper">
+                </div>
+                
+                <!-- 카테고리 2 -->
+                <div class="category-box" onclick="window.location.href='다른페이지의URL1'">
+                    <div class="category-title">플라스틱</div>
+                    <img class="image" src="img/plastic.png" alt="plastic">
+                </div>
+                
+                <!-- 카테고리 3 -->
+                <div class="category-box" onclick="window.location.href='다른페이지의URL1'">
+                    <div class="category-title">캔/고철</div>
+                    <img class="image" src="img/metal.png" alt="metal">
+                </div>
+                
+                <!-- 카테고리 4 -->
+                <div class="category-box" onclick="window.location.href='다른페이지의URL1'">
+                    <div class="category-title">유리</div>
+                    <img class="image" src="img/glass.png" alt="glass">
+                </div>
+                
+                <!-- 카테고리 5 -->
+                <div class="category-box" onclick="window.location.href='다른페이지의URL1'">
+                    <div class="category-title">비닐</div>
+                    <img class="image" src="img/vinlybag.png" alt="plasticbag">
+                </div>
+                
+                <!-- 카테고리 6 -->
+                <div class="category-box" onclick="window.location.href='다른페이지의URL1'">
+                    <div class="category-title">음식물</div>
+                    <img class="image" src="img/organic.png" alt="organic">
+                </div>
+                
+                <!-- 카테고리 7 -->
+                <div class="category-box"onclick="window.location.href='다른페이지의URL1'">
+                    <div class="category-title">의약품</div>
+                    <img class="image" src="img/Medicine.png" alt="Medicine">
+                </div>
+                
+                <!-- 카테고리 8 -->
+                <div class="category-box" onclick="window.location.href='다른페이지의URL6'">
+                    <div class="category-title">기타</div>
+                    <img class="image" src="img/battery.png" alt="battery">
+                </div>
+            </div>
+        </div>
+
+        <div class="banner4">
+            <div class="banner-text">
+                <h2>분리수거 게임</h2>
+                <p>간단한 게임에 참여해보세요!</p>
+                <button id="playButton">게임 플레이하기</button>
+            </div>
+        </div>
+
+        <div class="banner5">
+            <div class="slider">
+                <div class="slide-container">
+                    <img src="./img/ex_slideimg.jpg" alt="slideimage1">
+                    <img src="./img/ex_slideimg2.png" alt="slideimage2">
+                    <img src="./img/ex_slideimg3.png" alt="slideimage3">
+                </div>
+            </div>
+        </div>
+
+        <div class="banner6">
+            <div class="slider">
+                <div class="slide-container">
+                    <img src="./img/ex_slideimg.jpg" alt="slideimage4">
+                    <img src="./img/ex_slideimg2.png" alt="slideimage5">
+                    <img src="./img/ex_slideimg3.png" alt="slideimage6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        푸터 영역
+    </footer>
+
+    <script>
+        // 분리수거 페이지로 연결
+
+
+        // 슬라이드 배너 자동 슬라이드 기능 추가
+        document.addEventListener("DOMContentLoaded", function() {
+            const slideContainers = document.querySelectorAll(".slider .slide-container");
+            let slideIndexes = [0, 0];
+    
+            setInterval(function() {
+                slideIndexes[0]++;
+                slideContainers[0].style.transition = "margin-left 0.6s"
+                slideContainers[0].style.marginLeft = `${-1000 * slideIndexes[0]}px`;
+    
+                if (slideIndexes[0] === 3) {
+                    setTimeout(function() {
+                        slideContainers[0].style.marginLeft = "0";
+                        slideIndexes[0] = 0;
+                    }, 0);
+                };   
+    
+                slideIndexes[1]++;
+                slideContainers[1].style.transition = "margin-left 0.6s"
+                slideContainers[1].style.marginLeft = `${-1000 * slideIndexes[1]}px`;
+    
+                if (slideIndexes[1] === 3) {
+                    setTimeout(function() {
+                        slideContainers[1].style.marginLeft = "0";
+                        slideIndexes[1] = 0;
+                    }, 0);
+                }
+            }, 3000);
+        });
+    
+
+    </script>
+</body>
+</html>

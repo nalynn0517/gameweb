@@ -1,0 +1,133 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    box-sizing: border-box;
+  }
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  li {
+    list-style: none;
+  }
+  header{
+    background-color: #FFE081;
+    color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* 메뉴 탭 고정 */
+    top: 0; /* 화면의 맨 위에 위치하도록 설정 */
+    width: 100%; /* 화면 너비에 맞게 설정 */
+    z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
+  }
+  
+  .search-bar {
+    display: flex; /* 입력 필드와 버튼을 옆으로 나란히 표시 */
+  }
+  
+  .search-bar input[type="text"] {
+    flex: 1; /* 입력 필드가 가능한 최대한의 공간을 차지하도록 함 */
+    padding: 10px; /* 입력 필드 주변에 여백 추가 */
+    margin-right: 10px;
+  }
+  
+  .search-bar button {
+    border: none; /* 버튼 테두리 없애기 */
+    background: none; /* 버튼 배경 없애기 */
+    cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능한 것임을 나타냄 */
+  }
+  
+  .search-bar button img {
+    width: 30px; /* 이미지 너비 설정 */
+    height: auto; /* 높이 자동 조정 */
+    margin-top: 10px;
+  }
+  
+  .logo {
+    margin-right: 30px;
+    font-size: 24px;
+  }
+  
+  nav ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline-block; /* 항목들을 가로로 배열 */
+    margin-right: 70px; /* 간격 조정 */
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0; /* 마지막 메뉴 항목의 간격 조정 */
+  }
+  
+  nav ul li a {
+    color: #333; /* 메뉴 항목의 텍스트 색상 */
+    text-decoration: none; /* 밑줄 제거 */
+  }
+  
+  /* header */
+  .recycleTab{
+    text-align: center;
+    padding: 20px;
+    margin-top: 80px;
+  }
+  .tab1,
+  .tab2{
+    width: 100%;
+  }
+  .recycleTab button{
+    width: 150px;
+    height: 50px;
+    margin: 0 5px 10px 0;
+    background: #235B36;
+    color: white;
+    font-size: 15px;
+  }
+  .recycleTab button.active{
+    background: white;
+    border: 4px solid #235B36;
+    color: #235B36;
+  }
+  .recycleCnts{
+    display: flex;
+    margin-top: 5px;
+  }
+  .recycleSubTab{
+    position: relative;
+    left: 9%;
+  }
+  .recycleSubTab button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 40px;
+    margin: 10px 0;
+    border-radius: 25px;
+    border: 3px solid #64884A;
+    color: #fff;
+    background: #64884A;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .recycleSubTab button.active{
+    background: #fff;
+    color: #64884A;
+    transition: 0.2s;
+  }
+  .recycleContent{
+    width: 65%;
+    height: 600px;
+    position: relative;
+    left: 10%;
+    padding: 20px;
+    background: rgb(173, 181, 98, 0.5);
+  }
+  
+  

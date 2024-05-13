@@ -1,0 +1,256 @@
+* {
+    box-sizing: border-box; /* 모든 요소의 박스 크기를 내부 패딩 및 테두리를 포함한 크기로 설정 */
+  }
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-top: 58px; /* header의 높이만큼 여백 추가 */
+  
+  }
+  
+  header {
+    background-color: #d8d8d8;
+    color: #000000;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* 메뉴 탭 고정 */
+    top: 0; /* 화면의 맨 위에 위치하도록 설정 */
+    width: 100%; /* 화면 너비에 맞게 설정 */
+    z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
+  }
+  
+  .search-bar {
+    display: flex; /* 입력 필드와 버튼을 옆으로 나란히 표시 */
+  }
+  
+  .search-bar input[type="text"] {
+    flex: 1; /* 입력 필드가 가능한 최대한의 공간을 차지하도록 함 */
+    padding: 10px; /* 입력 필드 주변에 여백 추가 */
+  }
+  
+  .search-bar button {
+    border: none; /* 버튼 테두리 없애기 */
+    background: none; /* 버튼 배경 없애기 */
+    cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능한 것임을 나타냄 */
+  }
+  
+  .search-bar button img {
+    width: 30px; /* 이미지 너비 설정 */
+    height: auto; /* 높이 자동 조정 */
+    margin-top: 3px;
+  }
+  
+  .logo {
+    margin-right: 30px;
+    font-size: 24px;
+  }
+  nav ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline-block; /* 항목들을 가로로 배열 */
+    margin-right: 150px; /* 간격 조정 */
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0; /* 마지막 메뉴 항목의 간격 조정 */
+  }
+  
+  nav ul li a {
+    color: #000000; /* 메뉴 항목의 텍스트 색상 */
+    text-decoration: none; /* 밑줄 제거 */
+  }
+  
+  .banner-section {
+    display: flex;
+    flex-direction: column; /* 배너를 세로로 쌓기 위해 column 방향으로 설정 */
+    align-items: center; /* 가운데 정렬 */
+  }
+  
+  .kakao-infowindow.infowindow-content {
+    width: 300px; /* 원하는 너비로 설정 */
+    height: 200px; /* 원하는 높이로 설정 */
+    overflow-y: auto; /* 내용이 넘칠 경우 수직 스크롤바 표시 */
+  }
+  
+  .banner {
+    max-width: 600px;
+    width: 100%; /* 배너의 가로 너비를 화면 너비에 맞춤 */
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+  
+  .banner1 {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 0; /* 배너 사이의 간격 제거 */
+    width: 100%; /* 화면 너비에 꽉 차게 설정 */
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 세로 가운데 정렬 */
+    align-items: center; /* 가로 가운데 정렬 */
+  }
+  
+  .logo-container img {
+    max-width: 100%; /* 로고 이미지 너비 최대값 설정 */
+    max-height: 100%; /* 로고 이미지 높이 최대값 설정 */
+  }
+  
+  .quick-recycle {
+    margin-top: 20px; /* "빠른 분리 바른 배출"과 로고 사이의 여백 조정 */
+    font-size: 24px; /* 텍스트 크기 설정 */
+  }
+  
+  .banner2 {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+  }
+  .banner3 {
+    background-color: #c5d4c9;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    width: 100%;/* 화면 너비에 꽉 차게 설정 */
+    height: 630px;
+  }
+  
+  .category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; /* 세로 정렬 기준을 맨 위로 조정 */
+    max-width: 1200px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 중앙 정렬을 위해 좌우 여백을 자동으로 조정 */
+  }
+  
+  .category-box {
+    position: relative;
+    width: 195px; /* 너비 조정 */
+    height: 195px; /* 높이 조정 */
+    margin: 30px; /* 여백 조정 */
+    background-color: white; /* 배경색 흰색 */
+    border: 4px solid #235B36; /* 테두리 색 녹색 */
+    border-radius: 10px; /* 사각형 모서리 둥글게 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px; /* 내부 여백 */
+    cursor: pointer; /* 포인터 모양으로 변경하여 클릭 가능하도록 */
+    }
+  
+  .category-title {
+    margin-bottom: auto; /* 아래 여백 자동으로 채우기 */
+    font-size: 30px;
+    color: #2a6b40 ;
+  }
+  
+  .image {
+    position: absolute;
+    bottom: 0; /* 아래로 정렬 */
+    right: 0; /* 오른쪽으로 정렬 */
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 76px; /* 이미지가 사각형을 넘어가지 않도록 최대 너비 설정 */
+    height: 76px; /* 이미지가 사각형을 넘어가지 않도록 최대 높이 설정 */
+  }
+  
+  .banner4 {
+    background-image: url("img/game.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    height: 630px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white; /* 텍스트 색상을 흰색으로 설정 */
+  }
+  
+  .banner4 .banner-text {
+    margin-top: 20px; /* 텍스트와 이미지 간의 여백 조절 */
+  }
+  
+  .banner4 .banner-text h2 {
+    font-size: 30px;
+    margin-bottom: 50px; /* 각 요소의 아래쪽 여백 조절 */
+  }
+  
+  .banner4 .banner-text p{
+    margin-bottom: 20px;
+  }
+  .banner4 .banner-text button {
+    margin-bottom: 30px; /* 각 요소의 아래쪽 여백 조절 */
+  }
+  
+  .banner5 {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 0; /* 배너 사이의 간격 제거 */
+    width: 1200px;/* 화면 너비에 꽉 차게 설정 */
+    height: 400px
+  }
+  
+  .banner6 {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 0; /* 배너 사이의 간격 제거 */
+    width: 1200px;/* 화면 너비에 꽉 차게 설정 */
+    height: 400px
+  }
+  
+  .slider{
+    overflow: hidden;
+    width: 1000px;
+    height: 300px;
+    position: relative;
+    left: 80px;
+    top: 30px;
+  }
+  
+  .slide-container{
+    display: flex;
+    width: 3000px;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #a6a6a6;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  body {
+    height: 100vh;
+    overflow-y: auto;
+  }
