@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 카카오맵 API를 비동기로 로드
     loadKakaoMapAPI(kakaoApiKey);
+
 });
 
 // 카카오맵 API를 비동기로 로드하는 함수
