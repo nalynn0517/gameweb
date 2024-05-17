@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,25 @@
     <link rel="stylesheet" href="game.css">
 </head>
 <body>
-    <h1>분리수거 게임</h1>
-    <div id="game-area">
-        <div id="trash" draggable="true"></div>
-        <div class="bin" id="recycle-bin">재활용</div>
-        <div class="bin" id="organic-bin">음식물</div>
-        <div class="bin" id="general-bin">일반</div>
+    <div class="game-container">
+        <h1>분리수거 게임</h1>
+        <div class="score">점수: <span id="score">0</span></div>
+        <div class="trash-container">
+            <div class="trash" id="example1" draggable="true"></div>
+            <div class="trash" id="example2" draggable="true"></div>
+            <div class="trash" id="example3" draggable="true"></div>
+            <!-- 추가적인 쓰레기 요소들 -->
+        </div>
+        <div class="bins">
+            <div class="bin" data-type="paper">종이</div>
+            <div class="bin" data-type="plastic">플라스틱</div>
+            <div class="bin" data-type="can">캔/고철</div>
+            <div class="bin" data-type="glass">유리</div>
+            <div class="bin" data-type="vinyl">비닐</div>
+            <div class="bin" data-type="food">음식물</div>
+            <div class="bin" data-type="medicine">의약품</div>
+            <div class="bin" data-type="other">기타</div>
+        </div>
     </div>
     <script src="game.js"></script>
 </body>

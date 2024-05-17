@@ -1,37 +1,47 @@
-const trash = document.getElementById('trash');
-const bins = document.querySelectorAll('.bin');
+let score = 0;
 
-// 랜덤 쓰레기 종류
-const trashTypes = ['재활용', '음식물', '일반'];
-let currentTrashType = '';
+document.addEventListener('DOMContentLoaded', () => {
+    const trashItems = document.querySelectorAll('.trash');
+    const bins = document.querySelectorAll('.bin');
 
-// 쓰레기 종류 설정
-function setTrashType() {
-    currentTrashType = trashTypes[Math.floor(Math.random() * trashTypes.length)];
-    trash.textContent = currentTrashType;
-}
-
-// 드래그 앤 드롭 이벤트 핸들러
-trash.addEventListener('dragstart', (e) => {
-    e.dataTransfer.setData('text/plain', currentTrashType);
-});
-
-bins.forEach(bin => {
-    bin.addEventListener('dragover', (e) => {
-        e.preventDefault();
+    trashItems.forEach(item => {
+        item.addEventListener('dragstart', dragStart);
     });
 
-    bin.addEventListener('drop', (e) => {
+    bins.forEach(bin => {
+        bin.addEventListener('dragover', dragOver);
+        bin.addEventListener('drop', drop);
+    });
+
+    function dragStart(e) {
+        e.dataTransfer.setData('text/plain', e.target.id);
+    }
+
+    function dragOver(e) {
         e.preventDefault();
-        const droppedTrash = e.dataTransfer.getData('text/plain');
-        if (droppedTrash === bin.textContent) {
-            alert('정답입니다!');
-        } else {
-            alert('다시 시도하세요.');
+    }
+
+    function drop(e) {
+        const id = e.dataTransfer.getData('text');
+        const draggedElement = document.getElementById(id);
+        const binType = e.target.getAttribute('data-type');
+
+        if (isCorrectBin(id, binType)) {
+            e.target.appendChild(draggedElement);
+            score++;
+            document.getElementById('score').textContent = score;
         }
-        setTrashType();
-    });
-});
+    }
 
-// 초기 쓰레기 설정
-setTrashType();
+    function isCorrectBin(trashId, binType) {
+        // 쓰레기 아이템 ID와 올바른 분리수거함을 매칭하는 로직을 작성
+        const trashTypes = {
+            example1: 'paper',
+            example2: 'plastic',
+            example3: 'can',
+            // 추가적인 매칭
+        };
+
+        return trashTypes[trashId] === binType;
+    }
+});
