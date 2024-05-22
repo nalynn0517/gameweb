@@ -6,28 +6,47 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
-
+h1{
+    margin-bottom: 15px;
+}
 .game-container {
     position: relative;
-    background: url("../img/gameback.jpg") #fff;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)
+      ), url("../img/gameback.jpg");
     width: 90%;
+    height: 60%;
     max-width: 1200px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
     margin: 0 auto;
 }
 
+
+.result-message {
+    margin-top: 40px;
+    font-size: 25px;
+    color: white; /* 글자 색상 흰색 */
+    text-shadow: -1px -1px 0 rgb(17, 12, 63),  
+                 1px -1px 0 rgb(17, 12, 63),
+                 -1px 1px 0 rgb(17, 12, 63),
+                 1px 1px 0 rgb(17, 12, 63); /* 글자 주변에 초록색 배경 효과 생성 */
+}
+
 #restartButton {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    bottom: 40px; /* 게임 컨테이너의 하단에 위치하도록 수정 */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #aee1b6;
     width: 130px;
     height: 50px;
     font-size: 16px;
+    opacity: 0.9;
 }
 
 .help-button {
@@ -47,21 +66,6 @@ body {
     align-items: center;
 }
 
-.game-rules {
-    position: absolute;
-    top: 80px;
-    left: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border: 2px solid #000;
-    border-radius: 5px;
-    text-align: left;
-    display: none;
-    z-index: 999;
-    width: calc(100% - 40px); /* 변경된 가로 폭 적용 */
-    max-height: calc(100% - 160px); /* 변경된 최대 높이 적용 */
-    overflow-y: auto; /* 세로 스크롤 추가 */
-}
 
 .close-button {
     position: absolute;
@@ -92,8 +96,8 @@ body {
 }
 
 .trash {
-    width: 100px;
-    height: 50px;
+    width: 120px;
+    height: 60px;
     margin: 0 10px;
     display: flex;
     justify-content: center;
@@ -117,19 +121,10 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
 }
 
-.result-message {
-    margin-top: 20px;
-    font-size: 25px;
-    color: white; /* 글자 색상 흰색 */
-    text-shadow: -1px -1px 0 rgb(108, 130, 108),  
-                 1px -1px 0 rgb(108, 130, 108),
-                 -1px 1px 0 rgb(108, 130, 108),
-                 1px 1px 0 rgb(108, 130, 108); /* 글자 주변에 초록색 배경 효과 생성 */
-}
 
 .lives-container {
     margin-top: 20px;
@@ -144,11 +139,33 @@ body {
     margin-right: 5px;
 }
 
-.carbon-reduction{
+.carbon-reduction {
     margin-top: 20px;
     font-size: 35px;
 }
 
 .hidden {
-    display: none; /* 숨김 */
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.game-rules {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 20px;
+    background-color: #87c8a4;
+    border: 2px solid #000;
+    border-radius: 5px;
+    text-align: left;
+    display: none;
+    z-index: 999;
+    width: calc(100% - 1000px);
+    max-height: calc(100% - 300px);
+    overflow-y: auto;
+}
+
+.visible {
+    display: block;
 }

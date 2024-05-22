@@ -34,7 +34,6 @@ const trashTypes = [
     { id: 'other8', type: 'other', text: '화장품' }
 ];
 
-
 document.addEventListener('DOMContentLoaded', () => {
     const trashContainer = document.querySelector('.trash-container');
     const bins = document.querySelectorAll('.bin');
@@ -47,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameRules = document.getElementById('gameRules');
     const closeButton = document.getElementById('closeButton');
 
+    // 쓰레기 아이템 생성
     function createTrashItem() {
         trashContainer.innerHTML = ''; // 기존 쓰레기 요소를 삭제
         const randomTrash = trashTypes[Math.floor(Math.random() * trashTypes.length)];
@@ -60,11 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
         trashContainer.appendChild(trashItem);
     }
 
+    // 랜덤 색상 생성
     function getRandomColor() {
         const colors = ['#FF0000', '#FF8339', '#006D00', '#0000FF', '#800000', '#800080', '#000000'];
         return colors[Math.floor(Math.random() * colors.length)];
     }
-    
+
     function dragStart(e) {
         e.dataTransfer.setData('text/plain', e.target.id);
     }
@@ -127,8 +128,19 @@ document.addEventListener('DOMContentLoaded', () => {
             bin.removeEventListener('dragover', dragOver);
             bin.removeEventListener('drop', drop);
         });
+        // 게임 종료 후 다시 시작하기 버튼 표시
+        showRestartButton();
+    }
+    
+    // 게임 종료 시 다시 시작하기 버튼 표시
+    function showRestartButton() {
+        restartButton.classList.remove('hidden');
     }
 
+    function toggleGameRules() {
+        gameRules.classList.toggle('visible');
+    }
+    
     bins.forEach(bin => {
         bin.addEventListener('dragover', dragOver);
         bin.addEventListener('drop', drop);
@@ -137,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createTrashItem();
 
     function toggleGameRules() {
-        gameRules.classList.toggle('hidden');
+        gameRules.classList.toggle('visible');
     }
     
     // 다시 시작하기 버튼을 숨김
@@ -152,12 +164,17 @@ document.addEventListener('DOMContentLoaded', () => {
     helpButton.addEventListener('click', toggleGameRules);
     closeButton.addEventListener('click', toggleGameRules);
 
-    // 게임 종료 시 다시 시작하기 버튼 표시
-    function showRestartButton() {
-        restartButton.classList.remove('hidden');
-    }
-
-    // 게임 종료 시 다시 시작하기 버튼 표시
-    // 여기서는 테스트를 위해 5초 후에 표시되도록 설정합니다.
-    setTimeout(showRestartButton, 5000); // 실제로는 게임 종료 시 호출하도록 변경해야 합니다.
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const helpButton = document.getElementById("helpButton");
+    const gameRules = document.getElementById("gameRules");
+    const closeButton = document.getElementById("closeButton");
+
+    helpButton.addEventListener("click", toggleGameRules);
+    closeButton.addEventListener("click", toggleGameRules);
+
+    function toggleGameRules() {
+        gameRules.classList.toggle("hidden");
+    }
+});
+

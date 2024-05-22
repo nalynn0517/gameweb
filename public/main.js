@@ -1,11 +1,3 @@
-// JavaScript로 밑줄 제거 및 페이지 이동 처리
-document.getElementById("logo-link").addEventListener("click", function(event) {
-    // 기본 동작인 페이지 이동을 취소
-    event.preventDefault();
-    // 페이지 이동
-    window.location.href = this.getAttribute("href");
-});
-
 document.addEventListener("DOMContentLoaded", function () {
     // 카카오맵 API 키
     const kakaoApiKey = '8948120168a32c7a96068b04adbb1558';
@@ -18,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // 카카오맵 API를 비동기로 로드하는 함수
 function loadKakaoMapAPI(apiKey) {
     const script = document.createElement("script");
-    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&libraries=services,drawing`;
+    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=8948120168a32c7a96068b04adbb1558&libraries=services,drawing`;
     document.body.appendChild(script);
     script.onload = () => {
         // 카카오맵 API 로드 후 초기화 함수 호출
