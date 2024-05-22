@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background: #f0f0f0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -9,8 +10,7 @@ body {
 }
 
 .game-container {
-    background-image: url("../img/gameback.jpg");
-    background-size: cover;
+    background: #fff;
     width: 90%;
     max-width: 1200px;
     padding: 20px;
@@ -18,7 +18,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-
 
 .score {
     font-size: 24px;
@@ -32,23 +31,16 @@ body {
 }
 
 .trash {
-    width: 50px;
+    width: 100px;
     height: 50px;
     margin: 0 10px;
-    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: white;
     cursor: pointer;
-}
-
-#example1 {
-    background-image: url('images/example1.jpg');
-}
-
-#example2 {
-    background-image: url('images/example2.jpg');
-}
-
-#example3 {
-    background-image: url('images/example3.jpg');
+    border-radius: 5px;
 }
 
 .bins {
@@ -57,8 +49,8 @@ body {
 }
 
 .bin {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border: 2px dashed #333;
     display: flex;
     justify-content: center;
@@ -66,4 +58,28 @@ body {
     font-size: 14px;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
+}
+
+.result-message {
+    margin-top: 20px;
+    font-size: 30px;
+    color: green;
+}
+
+.lives-container {
+    margin-top: 20px;
+}
+
+.life {
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.carbon-reduction{
+    margin-top: 20px;
+    font-size: 50px;
 }
