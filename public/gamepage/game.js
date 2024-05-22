@@ -18,7 +18,7 @@ const trashTypes = [
     { id: 'vinyl1', type: 'vinyl', text: '비닐봉지' },
     { id: 'vinyl2', type: 'vinyl', text: '랩' },
     { id: 'vinyl3', type: 'vinyl', text: '과자 봉지' },
-    { id: 'food1', type: 'food', text: '음식물 쓰레기' },
+    { id: 'food1', type: 'food', text: '채소 자투리' },
     { id: 'food2', type: 'food', text: '채소 껍질' },
     { id: 'food3', type: 'food', text: '과일 껍질' },
     { id: 'medicine1', type: 'medicine', text: '폐약품' },
@@ -34,6 +34,7 @@ const trashTypes = [
     { id: 'other8', type: 'other', text: '화장품' }
 ];
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const trashContainer = document.querySelector('.trash-container');
     const bins = document.querySelectorAll('.bin');
@@ -41,6 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const scoreDisplay = document.getElementById('score');
     const carbonDisplay = document.getElementById('carbon');
     const livesContainer = document.querySelector('.lives-container');
+    const restartButton = document.getElementById('restartButton');
+    const helpButton = document.getElementById('helpButton');
+    const gameRules = document.getElementById('gameRules');
+    const closeButton = document.getElementById('closeButton');
 
     function createTrashItem() {
         trashContainer.innerHTML = ''; // 기존 쓰레기 요소를 삭제
@@ -56,14 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getRandomColor() {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
+        const colors = ['#FF0000', '#FF8339', '#006D00', '#0000FF', '#800000', '#800080', '#000000'];
+        return colors[Math.floor(Math.random() * colors.length)];
     }
-
+    
     function dragStart(e) {
         e.dataTransfer.setData('text/plain', e.target.id);
     }
@@ -102,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateCarbonReduction() {
-        const carbonReduction = correctCount * 0.2;
+        const carbonReduction = correctCount * 0.21;
         carbonDisplay.textContent = carbonReduction.toFixed(2);
     }
 
@@ -110,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < 3; i++) {
             const life = document.getElementById(`life${i + 1}`);
             if (i < lives) {
-                life.style.backgroundColor = '#ccc';
+                life.style.backgroundColor = '#ff2d2d';
             } else {
                 life.style.backgroundColor = 'transparent';
             }
@@ -119,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function endGame() {
         resultMessage.textContent = "게임 종료!";
-        const carbonReduction = correctCount * 0.2;
+        const carbonReduction = correctCount * 0.21;
         carbonDisplay.textContent = carbonReduction.toFixed(2);
         trashContainer.innerHTML = '';
         bins.forEach(bin => {
@@ -134,5 +135,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     createTrashItem();
-});
 
+    function toggleGameRules() {
+        gameRules.classList.toggle('hidden');
+    }
+    
+    // 다시 시작하기 버튼을 숨김
+    restartButton.classList.add('hidden');
+
+    // 다시 시작하기 버튼 클릭 이벤트 리스너 등록
+    restartButton.addEventListener('click', () => {
+        location.reload(); // 페이지 새로고침하여 게임 다시 시작
+    });
+
+    // 게임 규칙 버튼 클릭 이벤트 리스너 등록
+    helpButton.addEventListener('click', toggleGameRules);
+    closeButton.addEventListener('click', toggleGameRules);
+
+    // 게임 종료 시 다시 시작하기 버튼 표시
+    function showRestartButton() {
+        restartButton.classList.remove('hidden');
+    }
+
+    // 게임 종료 시 다시 시작하기 버튼 표시
+    // 여기서는 테스트를 위해 5초 후에 표시되도록 설정합니다.
+    setTimeout(showRestartButton, 5000); // 실제로는 게임 종료 시 호출하도록 변경해야 합니다.
+});

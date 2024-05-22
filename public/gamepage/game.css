@@ -10,13 +10,74 @@ body {
 }
 
 .game-container {
-    background: #fff;
+    position: relative;
+    background: url("../img/gameback.jpg") #fff;
     width: 90%;
     max-width: 1200px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin: 0 auto;
+}
+
+#restartButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 130px;
+    height: 50px;
+    font-size: 16px;
+}
+
+.help-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    background-color: #001648;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-rules {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    text-align: left;
+    display: none;
+    z-index: 999;
+    width: calc(100% - 40px); /* 변경된 가로 폭 적용 */
+    max-height: calc(100% - 160px); /* 변경된 최대 높이 적용 */
+    overflow-y: auto; /* 세로 스크롤 추가 */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #000;
+}
+
+.close-button:hover {
+    color: red;
 }
 
 .score {
@@ -62,8 +123,12 @@ body {
 
 .result-message {
     margin-top: 20px;
-    font-size: 30px;
-    color: green;
+    font-size: 25px;
+    color: white; /* 글자 색상 흰색 */
+    text-shadow: -1px -1px 0 rgb(108, 130, 108),  
+                 1px -1px 0 rgb(108, 130, 108),
+                 -1px 1px 0 rgb(108, 130, 108),
+                 1px 1px 0 rgb(108, 130, 108); /* 글자 주변에 초록색 배경 효과 생성 */
 }
 
 .lives-container {
@@ -73,7 +138,7 @@ body {
 .life {
     width: 20px;
     height: 20px;
-    background-color: #ccc;
+    background-color: #ff2d2d;
     border-radius: 50%;
     display: inline-block;
     margin-right: 5px;
@@ -81,5 +146,9 @@ body {
 
 .carbon-reduction{
     margin-top: 20px;
-    font-size: 50px;
+    font-size: 35px;
+}
+
+.hidden {
+    display: none; /* 숨김 */
 }

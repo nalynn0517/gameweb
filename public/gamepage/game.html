@@ -9,6 +9,8 @@
 <body>
     <div class="game-container">
         <h1>분리수거 게임</h1>
+        <button id="helpButton" class="help-button">?</button>
+        <button id="restartButton" class="hidden">다시 시작하기</button>
         <div class="score">점수: <span id="score">0</span></div>
         <div class="trash-container"></div>
         <div class="bins">
@@ -29,6 +31,14 @@
         </div>
     </div>
     <div class="carbon-reduction">줄인 탄소량: <span id="carbon">0</span>톤</div>
+    
+    <div class="game-rules hidden" id="gameRules">
+        <button id="closeButton" class="close-button">×</button>
+        <h2>게임 규칙</h2>
+        <p>랜덤으로 생성되는 쓰레기를 올바른 분리수거함에 넣어 점수를 획득하세요.</p>
+        <p>올바르게 분리수거할 때마다 3점씩 얻고, 올바르지 않게 분리수거할 때마다 하단 빨강 목숨이 하나씩 사라진다.</p>
+    </div>
     <script src="game.js"></script>
+    
 </body>
 </html>
