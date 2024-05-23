@@ -34,6 +34,8 @@ const trashTypes = [
     { id: 'other8', type: 'other', text: '화장품' }
 ];
 
+// game.js
+
 document.addEventListener('DOMContentLoaded', () => {
     const trashContainer = document.querySelector('.trash-container');
     const bins = document.querySelectorAll('.bin');
@@ -62,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 랜덤 색상 생성
     function getRandomColor() {
-        const colors = ['#FF0000', '#FF8339', '#006D00', '#0000FF', '#800000', '#800080', '#000000'];
+        const colors = ['#FF0000', '#d58300', '#006D00', '#0000FF', '#800000', '#800080', '#000000'];
         return colors[Math.floor(Math.random() * colors.length)];
     }
 
@@ -177,4 +179,3 @@ document.addEventListener("DOMContentLoaded", function() {
         gameRules.classList.toggle("hidden");
     }
 });
-

@@ -7,9 +7,11 @@ body {
     align-items: center;
     height: 100vh;
 }
-h1{
+
+h1 {
     margin-bottom: 15px;
 }
+
 .game-container {
     position: relative;
     background-image: linear-gradient(
@@ -26,27 +28,32 @@ h1{
     margin: 0 auto;
 }
 
-
 .result-message {
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 25px;
-    color: white; /* 글자 색상 흰색 */
+    color: white;
     text-shadow: -1px -1px 0 rgb(17, 12, 63),  
                  1px -1px 0 rgb(17, 12, 63),
                  -1px 1px 0 rgb(17, 12, 63),
-                 1px 1px 0 rgb(17, 12, 63); /* 글자 주변에 초록색 배경 효과 생성 */
+                 1px 1px 0 rgb(17, 12, 63);
 }
 
 #restartButton {
-    position: absolute;
-    bottom: 40px; /* 게임 컨테이너의 하단에 위치하도록 수정 */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #aee1b6;
-    width: 130px;
-    height: 50px;
+    
+    background-color: #0fb100;
+    color: white;
+    width: 120px;
+    height: 60px;
     font-size: 16px;
     opacity: 0.9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#restartButton:hover {
+    background-color: #059700;
 }
 
 .help-button {
@@ -65,7 +72,6 @@ h1{
     justify-content: center;
     align-items: center;
 }
-
 
 .close-button {
     position: absolute;
@@ -111,6 +117,8 @@ h1{
 .bins {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px 0;
 }
 
 .bin {
@@ -123,8 +131,9 @@ h1{
     font-size: 14px;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
+    margin: 10px;
+    position: relative;
 }
-
 
 .lives-container {
     margin-top: 20px;
@@ -145,9 +154,7 @@ h1{
 }
 
 .hidden {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
+    display: none;
 }
 
 .game-rules {
@@ -155,7 +162,7 @@ h1{
     top: 20px;
     left: 20px;
     padding: 20px;
-    background-color: #87c8a4;
+    background-color: #c4ffdf;
     border: 2px solid #000;
     border-radius: 5px;
     text-align: left;

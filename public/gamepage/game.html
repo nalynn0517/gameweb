@@ -6,12 +6,12 @@
     <title>분리수거 게임</title>
     <link rel="stylesheet" href="game.css">
 </head>
-
 <body>
     <div class="game-container">
         <h1>분리수거 게임</h1>
         <button id="helpButton" class="help-button">?</button>
         <div class="score">점수: <span id="score">0</span></div>
+        <button id="restartButton" class="hidden">다시 시작하기</button>
         <div class="trash-container"></div>
         <div class="bins">
             <div class="bin" data-type="paper">종이</div>
@@ -24,16 +24,13 @@
             <div class="bin" data-type="other">기타</div>
         </div>
         <div class="result-message" id="resultMessage"></div>
-        <button id="restartButton" class="hidden">다시 시작하기</button>
         <div class="lives-container">
             <span class="life" id="life1"></span>
             <span class="life" id="life2"></span>
             <span class="life" id="life3"></span>
         </div>
-        
     </div>
     <div class="carbon-reduction">줄인 탄소량: <span id="carbon">0</span>톤</div>
-    
     <div class="game-rules hidden" id="gameRules">
         <button id="closeButton" class="close-button">×</button>
         <h2>게임 규칙</h2>
@@ -44,6 +41,5 @@
         <p>게임이 종료되면 다시 시작하기 버튼을 눌러 다시 시작할 수 있어요!</p>
     </div>
     <script src="game.js"></script>
-    
 </body>
 </html>
