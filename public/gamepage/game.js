@@ -34,15 +34,19 @@ const trashTypes = [
     { id: 'other8', type: 'other', text: '화장품' }
 ];
 
-// game.js
-
 document.addEventListener('DOMContentLoaded', () => {
+    const homeButton = document.getElementById('homeButton');
+    
+    homeButton.addEventListener('click', () => {
+        window.location.href = 'http://localhost:8080';
+    });
+    
     const trashContainer = document.querySelector('.trash-container');
     const bins = document.querySelectorAll('.bin');
     const resultMessage = document.getElementById('resultMessage');
     const scoreDisplay = document.getElementById('score');
     const carbonDisplay = document.getElementById('carbon');
-    const livesContainer = document.querySelector('.lives-container');
+    const livescontainer = document.querySelector('.lives-container');
     const restartButton = document.getElementById('restartButton');
     const helpButton = document.getElementById('helpButton');
     const gameRules = document.getElementById('gameRules');
@@ -114,9 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < 3; i++) {
             const life = document.getElementById(`life${i + 1}`);
             if (i < lives) {
-                life.style.backgroundColor = '#ff2d2d';
+                life.textContent = '❤️';
             } else {
-                life.style.backgroundColor = 'transparent';
+                life.textContent = '🖤';
             }
         }
     }
@@ -133,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 게임 종료 후 다시 시작하기 버튼 표시
         showRestartButton();
     }
-    
+
     // 게임 종료 시 다시 시작하기 버튼 표시
     function showRestartButton() {
         restartButton.classList.remove('hidden');
@@ -142,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleGameRules() {
         gameRules.classList.toggle('visible');
     }
-    
+
     bins.forEach(bin => {
         bin.addEventListener('dragover', dragOver);
         bin.addEventListener('drop', drop);
@@ -153,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleGameRules() {
         gameRules.classList.toggle('visible');
     }
-    
+
     // 다시 시작하기 버튼을 숨김
     restartButton.classList.add('hidden');
 
@@ -167,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closeButton.addEventListener('click', toggleGameRules);
 
 });
+
 document.addEventListener("DOMContentLoaded", function() {
     const helpButton = document.getElementById("helpButton");
     const gameRules = document.getElementById("gameRules");

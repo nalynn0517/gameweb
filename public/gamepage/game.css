@@ -6,10 +6,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
-h1 {
-    margin-bottom: 15px;
+h1.game-title {
+    margin-bottom: 30px;
+    font-size: 36px;
 }
 
 .game-container {
@@ -28,9 +30,25 @@ h1 {
     margin: 0 auto;
 }
 
+.home-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.home-button:focus {
+    outline: none;
+}
+
 .result-message {
-    margin-top: 20px;
-    font-size: 25px;
+    margin-top: 30px;
+    font-size: 35px;
     color: white;
     text-shadow: -1px -1px 0 rgb(17, 12, 63),  
                  1px -1px 0 rgb(17, 12, 63),
@@ -39,7 +57,6 @@ h1 {
 }
 
 #restartButton {
-    
     background-color: #0fb100;
     color: white;
     width: 120px;
@@ -71,6 +88,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 3px;
 }
 
 .close-button {
@@ -91,8 +109,9 @@ h1 {
 }
 
 .score {
+    margin-top: 20px;
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .trash-container {
@@ -136,16 +155,15 @@ h1 {
 }
 
 .lives-container {
-    margin-top: 20px;
+    position: absolute;
+    top: 20px;
+    left: 60px; /* helpButton의 오른쪽에 위치 */
+    display: flex;
+    gap: 10px;
 }
 
 .life {
-    width: 20px;
-    height: 20px;
-    background-color: #ff2d2d;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 5px;
+    font-size: 20px;
 }
 
 .carbon-reduction {
