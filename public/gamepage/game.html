@@ -7,30 +7,33 @@
     <link rel="stylesheet" href="game.css">
 </head>
 <body>
-    <h1 class="game-title">분리수거 게임</h1>
     <div class="game-container">
-        <button id="helpButton" class="help-button">?</button>
-        <button id="homeButton" class="home-button">
-            <img src="../img/homebutton.png" alt="Home">
+        <button id="helpButton" class="help-button">
+            <img src="../gamepage/img/help.png" alt="Help">
         </button>
-        <div class="score">점수: <span id="score">0</span></div>
-        <button id="restartButton" class="hidden">다시 시작하기</button>
+        <button id="homeButton" class="home-button">
+            <img src="../gamepage/img/home.png" alt="Home">
+        </button>
+        <div class="score">score <span id="score">0</span></div>
+        <button id="restartButton" class="hidden">
+            <img src="../gamepage/img/restart.png" alt="Restart">
+        </button>
         <div class="trash-container"></div>
         <div class="bins">
-            <div class="bin" data-type="paper">종이</div>
-            <div class="bin" data-type="plastic">플라스틱</div>
-            <div class="bin" data-type="can">캔/고철</div>
-            <div class="bin" data-type="glass">유리</div>
-            <div class="bin" data-type="vinyl">비닐</div>
-            <div class="bin" data-type="food">음식물</div>
-            <div class="bin" data-type="medicine">의약품</div>
-            <div class="bin" data-type="other">기타</div>
+            <div class="bin" id="paperBin" data-type="paper"><img src="../gamepage/img/paper.png" alt="Paper Bin"></div>
+            <div class="bin" id="plasticBin" data-type="plastic"><img src="../gamepage/img/plastic.png" alt="Plastic Bin"></div>
+            <div class="bin" id="canBin" data-type="can"><img src="../gamepage/img/can.png" alt="Can Bin"></div>
+            <div class="bin" id="glassBin" data-type="glass"><img src="../gamepage/img/glass.png" alt="Glass Bin"></div>
+            <div class="bin" id="vinylBin" data-type="vinyl"><img src="../gamepage/img/vinyl.png" alt="Vinyl Bin"></div>
+            <div class="bin" id="foodBin" data-type="food"><img src="../gamepage/img/food.png" alt="Food Bin"></div>
+            <div class="bin" id="medicineBin" data-type="medicine"><img src="../gamepage/img/medicine.png" alt="Medicine Bin"></div>
+            <div class="bin" id="otherBin" data-type="other"><img src="../gamepage/img/etc.png" alt="Other Bin"></div>
         </div>
         <div class="result-message" id="resultMessage"></div>
         <div class="lives-container">
-            <span class="life" id="life1">❤️</span>
-            <span class="life" id="life2">❤️</span>
-            <span class="life" id="life3">❤️</span>
+            <img class="life" id="life1" src="../gamepage/img/fullheart.png" alt="Life 1">
+            <img class="life" id="life2" src="../gamepage/img/fullheart.png" alt="Life 2">
+            <img class="life" id="life3" src="../gamepage/img/fullheart.png" alt="Life 3">
         </div>
     </div>
     <div class="carbon-reduction">줄인 탄소량: <span id="carbon">0</span>톤</div>
