@@ -19,16 +19,16 @@
   }
   
   header {
-    background-color: rgb(149, 177, 121);
+    background-color: #e6ffdd;
     color: #000000;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+    position: fixed; /* 메뉴 탭 고정 */
+    top: 0; /* 화면의 맨 위에 위치하도록 설정 */
+    width: 100%; /* 화면 너비에 맞게 설정 */
+    z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
   }
   
   nav ul {
