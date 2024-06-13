@@ -1,4 +1,3 @@
-/* reset */
 * {
     margin: 0;
     padding: 0;
@@ -44,16 +43,18 @@
     padding: 0 10px;
     transition: none;
   }
-  
+
   .recycle-text {
     margin: 0; /* 왼쪽 여백 제거 */
     text-align: center; /* 가운데 정렬 */
     margin-right: 600px;
     text-decoration: none;
     font-size: 24px;
-    font-style: bold;
+    font-weight: bold; /* 폰트 굵기 설정 */
+    font-family : 'GmarketSansTTFLight';
     align-items: center;
-  }
+}
+
   
   /* 메뉴 사이의 점 제거 */
   nav ul li + li::before {

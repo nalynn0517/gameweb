@@ -230,7 +230,7 @@ function showZeroWasteStores(map) {
                             <div>${store.name}</div>
                             <br>
                             <div>${store.address}</div>
-                            <button style="position: absolute; right: 10px; bottom: 10px;" onclick="window.location.href='${store.link}'">➡️</button>
+                            <button style="position: absolute; right: 10px; bottom: 10px;" onclick="window.open('${store.link}', '_blank')">➡️</button><div>
                         </div>
                     `;
     

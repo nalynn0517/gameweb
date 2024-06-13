@@ -145,7 +145,7 @@ nav ul {
   text-decoration: none;
   background-color: rgb(68, 87, 49);
   color: rgb(255, 255, 255);
-  font-size: 24px;
+  font-size: 18px;
   padding: 10px 20px;
   border: 2px solid rgb(255, 255, 255);
   border-radius: 5px;
@@ -165,9 +165,9 @@ body {
 
 .banner2 {
   background-image: linear-gradient(
-        rgba(0, 0, 0, 0.21),
-        rgba(0, 0, 0, 0.5)
-      ), url("../img/gameback.png");
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.7)
+      ), url("../img/gamebanner.jpeg");
   background-size: cover;
   background-position: center;
   padding: 0;
