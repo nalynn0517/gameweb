@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>분리수거 게임</title>
+    <title>GAME</title>
     <link rel="stylesheet" href="game.css">
+    <script type="text/javascript">
+        function onClickHome() {
+            window.location.href = "../index.html";
+        }
+    </script>
 </head>
 <body>
     <div class="game-container">
         <button id="helpButton" class="help-button">
             <img src="../gamepage/img/help.png" alt="Help">
         </button>
-        <button id="homeButton" class="home-button">
+        <button id="homeButton" class="home-button" onclick="onClickHome()">
             <img src="../gamepage/img/home.png" alt="Home">
         </button>
         <div class="score">score <span id="score">0</span></div>
