@@ -21,7 +21,7 @@ body {
 }
 
 header {
-  background-color: #fefff1;
+  background-color: #fbfce6;
   color: #000000;
   padding: 10px;
   display: flex;
@@ -211,7 +211,7 @@ footer {
   width: 100%;
   height: 180px;
   background-color: #0e2509;
-  color: #777;
+  color: #a3a3a3;
   font-family: 'GmarketSansTTFLight';
   font-size: 16px;
 }
@@ -223,13 +223,13 @@ footer {
 }
 .ftitle{
   margin-top: 10px;
-  color: #999;
+  color: #e3e3e3;
 }
 p{
   margin: 20px;
   margin-top: 30px;
   font-size: 14px;
-  color: #999;
+  color: #d6d6d6;
 }
 
 body {

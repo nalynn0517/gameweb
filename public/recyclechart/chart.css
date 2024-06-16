@@ -49,9 +49,9 @@
     text-align: center; /* 가운데 정렬 */
     margin-right: 600px;
     text-decoration: none;
+    font-weight: bold;
     font-size: 24px;
-    font-weight: bold; /* 폰트 굵기 설정 */
-    font-family : 'GmarketSansTTFLight';
+    font-family : 'GmarketSansTTFMedium';
     align-items: center;
 }
 
@@ -60,29 +60,6 @@
   nav ul li + li::before {
     content: ""; /* 내용 제거 */
     margin-left: 10px; /* 왼쪽 여백 추가 */
-  }
-  
-  
-  .search-bar {
-    display: flex; /* 입력 필드와 버튼을 옆으로 나란히 표시 */
-  }
-  
-  .search-bar input[type="text"] {
-    flex: 1; /* 입력 필드가 가능한 최대한의 공간을 차지하도록 함 */
-    padding: 10px; /* 입력 필드 주변에 여백 추가 */
-    margin-right: 10px;
-  }
-  
-  .search-bar button {
-    border: none; /* 버튼 테두리 없애기 */
-    background: none; /* 버튼 배경 없애기 */
-    cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능한 것임을 나타냄 */
-  }
-  
-  .search-bar button img {
-    width: 30px; /* 이미지 너비 설정 */
-    height: auto; /* 높이 자동 조정 */
-    margin-top: 10px;
   }
   
   .logo {
@@ -94,7 +71,17 @@
     padding: 0;
     margin: 0;
   }
-  
+
+  .message {
+    text-align: center;
+    font-size: 20px;
+    position: absolute; /* 절대적 위치 지정 */
+    bottom: 20px; 
+    font-family: 'fontstyle';
+    font-weight: bold;
+    color: #333;
+  }
+
   nav ul li {
     display: inline-block; /* 항목들을 가로로 배열 */
     margin-right: 70px; /* 간격 조정 */
@@ -135,8 +122,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 22px;
-    margin-top: 260px;
+    margin-bottom: 50px;
+    margin-top: 150px;
   }
   
   .chart {
