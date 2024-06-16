@@ -167,7 +167,7 @@ body {
   background-image: linear-gradient(
         rgba(0, 0, 0, 0.242),
         rgba(0, 0, 0, 0.596)
-      ), url("../img/gamebanner.jpg");
+      ), url("img/gamebanner.jpg");
   background-size: cover;
   background-position: center;
   padding: 0;
