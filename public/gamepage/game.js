@@ -51,6 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const helpButton = document.getElementById('helpButton');
     const gameRules = document.getElementById('gameRules');
     const closeButton = document.getElementById('closeButton');
+    const modal = document.getElementById('explanationModal');
+    const modalText = document.getElementById('modalText');
+    const closeBtn = document.querySelector('.close');
 
     // 쓰레기 아이템 생성
     function createTrashItem() {
@@ -81,18 +84,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = e.dataTransfer.getData('text');
         const draggedElement = document.getElementById(id);
         const binType = e.currentTarget.getAttribute('data-type');
+        const trashItem = trashTypes.find(trash => trash.id === id);
         
         if (isCorrectBin(id, binType)) {
             score += 3;
             correctCount++;
             resultMessage.textContent = "정답입니다!";
+            modalText.innerHTML = `${trashItem.text}는 ${binType} 분리수거함에 올바르게 분리되었습니다.<br><br> ${getCorrectExplanation(trashItem)}`;
             updateCarbonReduction();
         } else {
             lives--;
             updateLives();
             resultMessage.textContent = "틀렸습니다!";
+            modalText.innerHTML = `${trashItem.text}는 ${binType} 분리수거함에 잘못 분리되었습니다.<br>올바른 분리수거함은 ${trashItem.type} 입니다. ${getIncorrectExplanation(trashItem)}`;
         }
         scoreDisplay.textContent = score;
+        explanationModal.style.display = "block";
         if (lives <= 0) {
             endGame();
         } else {
@@ -165,4 +172,121 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 게임 시작 시 쓰레기 아이템 생성
     createTrashItem();
+    
+    function getCorrectExplanation(trashItem) {
+        const explanations = {
+            paper: {
+                '신문지': "신문지는 종이류로 분류하여 재활용할 수 있습니다.<br>깨끗한 상태로 배출해주세요.",
+                '노트': "노트는 종이류로 분류하여 재활용할 수 있습니다.<br>스프링은 제거하고 배출해주세요.",
+                '박스': "박스는 종이류로 분류하여 재활용할 수 있습니다.<br>테이프와 스티커는 제거하고 배출해주세요."
+            },
+            plastic: {
+                '물병': "물병은 플라스틱류로 분류하여 재활용할 수 있습니다.<br>라벨을 제거하고 깨끗이 헹군 후 배출해주세요.",
+                '음료수 페트병': "음료수 페트병은 플라스틱류로 분류하여 재활용할 수 있습니다.<br>라벨을 제거하고 깨끗이 헹군 후 배출해주세요.",
+                '플라스틱 용기': "플라스틱 용기는 플라스틱류로 분류하여 재활용할 수 있습니다.<br>내용물을 비우고 깨끗이 헹군 후 배출해주세요."
+            },
+            can: {
+                '통조림 캔': "통조림 캔은 캔류로 분류하여 재활용할 수 있습니다. <br>깨끗이 헹군 후 배출해주세요.",
+                '철 캔': "철 캔은 캔류로 분류하여 재활용할 수 있습니다. <br>깨끗이 헹군 후 배출해주세요.",
+                '고철 조각': "고철 조각은 캔류로 분류하여 재활용할 수 있습니다. <br>크기가 작을 경우에는 모아서 배출해주세요."
+            },
+            glass: {
+                '유리병': "유리병은 유리류로 분류하여 재활용할 수 있습니다. <br>내용물을 비우고 깨끗이 헹군 후 배출해주세요.",
+                '깨진 유리': "깨진 유리는 유리류로 분류하여 재활용할 수 있지만, <br>안전을 위해 두꺼운 종이에 싸서 배출해주세요.",
+                '와인병': "와인병은 유리류로 분류하여 재활용할 수 있습니다.<br> 내용물을 비우고 깨끗이 헹군 후 배출해주세요."
+            },
+            vinyl: {
+                '비닐봉지': "비닐봉지는 비닐류로 분류하여 재활용할 수 있습니다. <br>깨끗한 상태로 배출해주세요.",
+                '랩 필름': "랩 필름은 비닐류로 분류하여 재활용할 수 있습니다. <br>깨끗한 상태로 배출해주세요.",
+                '과자 봉지': "과자 봉지는 비닐류로 분류하여 재활용할 수 있습니다. <br>내용물을 비우고 깨끗한 상태로 배출해주세요."
+            },
+            food: {
+                '채소 자투리': "채소 자투리는 음식물 쓰레기로 분류하여 재활용할 수 있습니다. <br>이물질을 제거하고 배출해주세요.",
+                '채소 껍질': "채소 껍질은 음식물 쓰레기로 분류하여 재활용할 수 있습니다. <br>이물질을 제거하고 배출해주세요.",
+                '과일 껍질': "과일 껍질은 음식물 쓰레기로 분류하여 재활용할 수 있습니다. <br>이물질을 제거하고 배출해주세요."
+            },
+            medicine: {
+                '폐약품': "폐약품은 약국이나 보건소에서 수거합니다. <br>함부로 버리지 말고 지정된 장소에 배출해주세요.",
+                '사용한 주사기': "사용한 주사기는 병원이나 보건소에서 수거합니다. <br>함부로 버리지 말고 지정된 장소에 배출해주세요.",
+                '폐기된 알약': "폐기된 알약은 약국이나 보건소에서 수거합니다. <br>함부로 버리지 말고 지정된 장소에 배출해주세요."
+            },
+            etc: {
+                '옷': "옷은 의류 수거함에 배출하거나, <br>재사용할 수 있는 경우 기부할 수 있습니다.",
+                '신발': "신발은 신발 수거함에 배출하거나, <br>재사용할 수 있는 경우 기부할 수 있습니다.",
+                '가방': "가방은 재활용 센터에 배출하거나, <br>재사용할 수 있는 경우 기부할 수 있습니다.",
+                '장난감': "장난감은 재활용 센터에 배출하거나, <br>재사용할 수 있는 경우 기부할 수 있습니다.",
+                '전자제품': "전자제품은 전자제품 수거함에 배출하거나, <br>재사용할 수 있는 경우 기부할 수 있습니다.",
+                '건전지': "건전지는 폐건전지 수거함에 배출해주세요.",
+                '형광등': "형광등은 폐형광등 수거함에 배출해주세요.",
+                '화장품': "화장품 용기는 플라스틱류로 분류하여 재활용할 수 있습니다. <br>내용물을 비우고 깨끗이 헹군 후 배출해주세요."
+            }
+        };
+        return explanations[trashItem.type][trashItem.text];
+    }
+
+    function getIncorrectExplanation(trashItem) {
+        const explanations = {
+            paper: {
+                '신문지': "신문지는 종이류로 분류하여 재활용할 수 있습니다.<br>깨끗한 상태로 배출해주세요.",
+                '노트': "노트는 종이류로 분류하여 재활용할 수 있습니다.<br>스프링은 제거하고 배출해주세요.",
+                '박스': "박스는 종이류로 분류하여 재활용할 수 있습니다.<br>테이프와 스티커는 제거하고 배출해주세요."
+            },
+            plastic: {
+                '물병': "물병은 플라스틱류로 분류하여 재활용할 수 있습니다.<br>라벨을 제거하고 깨끗이 헹군 후 배출해주세요.",
+                '음료수 페트병': "음료수 페트병은 플라스틱류로 분류하여 재활용할 수 있습니다.<br>라벨을 제거하고 깨끗이 헹군 후 배출해주세요.",
+                '플라스틱 용기': "플라스틱 용기는 플라스틱류로 분류하여 재활용할 수 있습니다.<br>내용물을 비우고 깨끗이 헹군 후 배출해주세요."
+            },
+            can: {
+                '통조림 캔': "통조림 캔은 캔류로 분류하여 재활용할 수 있습니다. <br>깨끗이 헹군 후 배출해주세요.",
+                '철 캔': "철 캔은 캔류로 분류하여 재활용할 수 있습니다. <br>깨끗이 헹군 후 배출해주세요.",
+                '고철 조각': "고철 조각은 캔류로 분류하여 재활용할 수 있습니다. <br>크기가 작을 경우에는 모아서 배출해주세요."
+            },
+            glass: {
+                '유리병': "유리병은 유리류로 분류하여 재활용할 수 있습니다. <br>내용물을 비우고 깨끗이 헹군 후 배출해주세요.",
+                '깨진 유리': "깨진 유리는 유리류로 분류하여 재활용할 수 있지만, <br>안전을 위해 두꺼운 종이에 싸서 배출해주세요.",
+                '와인병': "와인병은 유리류로 분류하여 재활용할 수 있습니다.<br> 내용물을 비우고 깨끗이 헹군 후 배출해주세요."
+            },
+            vinyl: {
+                '비닐봉지': "비닐봉지는 비닐류로 분류하여 재활용할 수 있습니다. <br>깨끗한 상태로 배출해주세요.",
+                '랩 필름': "랩 필름은 비닐류로 분류하여 재활용할 수 있습니다. <br>깨끗한 상태로 배출해주세요.",
+                '과자 봉지': "과자 봉지는 비닐류로 분류하여 재활용할 수 있습니다. <br>내용물을 비우고 깨끗한 상태로 배출해주세요."
+            },
+            food: {
+                '채소 자투리': "채소 자투리는 음식물 쓰레기로 분류하여 재활용할 수 있습니다. <br>이물질을 제거하고 배출해주세요.",
+                '채소 껍질': "채소 껍질은 음식물 쓰레기로 분류하여 재활용할 수 있습니다. <br>이물질을 제거하고 배출해주세요.",
+                '과일 껍질': "과일 껍질은 음식물 쓰레기로 분류하여 재활용할 수 있습니다. <br>이물질을 제거하고 배출해주세요."
+            },
+            medicine: {
+                '폐약품': "폐약품은 약국이나 보건소에서 수거합니다. <br>함부로 버리지 말고 지정된 장소에 배출해주세요.",
+                '사용한 주사기': "사용한 주사기는 병원이나 보건소에서 수거합니다. <br>함부로 버리지 말고 지정된 장소에 배출해주세요.",
+                '폐기된 알약': "폐기된 알약은 약국이나 보건소에서 수거합니다. <br>함부로 버리지 말고 지정된 장소에 배출해주세요."
+            },
+            etc: {
+                '옷': "옷은 의류 수거함에 배출하거나, <br>재사용할 수 있는 경우 기부할 수 있습니다.",
+                '신발': "신발은 신발 수거함에 배출하거나, <br>재사용할 수 있는 경우 기부할 수 있습니다.",
+                '가방': "가방은 재활용 센터에 배출하거나, <br>재사용할 수 있는 경우 기부할 수 있습니다.",
+                '장난감': "장난감은 재활용 센터에 배출하거나, <br>재사용할 수 있는 경우 기부할 수 있습니다.",
+                '전자제품': "전자제품은 전자제품 수거함에 배출하거나, <br>재사용할 수 있는 경우 기부할 수 있습니다.",
+                '건전지': "건전지는 폐건전지 수거함에 배출해주세요.",
+                '형광등': "형광등은 폐형광등 수거함에 배출해주세요.",
+                '화장품': "화장품 용기는 플라스틱류로 분류하여 재활용할 수 있습니다. <br>내용물을 비우고 깨끗이 헹군 후 배출해주세요."
+            }
+        };
+        return `다음 번에는 ${trashItem.text}를 ${trashItem.type} 분리수거함에 올바르게 분리해 주세요.<br><br>${explanations[trashItem.type][trashItem.text]}`;
+    }
+    closeBtn.addEventListener('click', closeModal);
+    function openModal(text) {
+        modalText.textContent = text;
+        modal.style.display = 'block';
+    }
+    
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+    document.addEventListener('click', function(event) {
+        if (event.target.matches('.close')) {
+            closeModal();
+        }
+    });
+    
 });
