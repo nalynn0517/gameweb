@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const homeButton = document.getElementById('homeButton');
     
     homeButton.addEventListener('click', () => {
-        window.location.href = "http://localhost:8080";
+        window.location.href = "../index.html";
     });
     
     const trashContainer = document.querySelector('.trash-container');
@@ -78,7 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // 드래그 중에만 쓰레기통 이미지를 열린 이미지로 변경
         e.currentTarget.querySelector('img').src = `../gamepage/img/${binType}_open.png`;
     }
-    
+
+    function dragLeave(e) {
+        const binType = e.currentTarget.getAttribute('data-type');
+        e.currentTarget.querySelector('img').src = `../gamepage/img/${binType}.png`;
+    }
+
     function drop(e) {
         e.preventDefault();
         const id = e.dataTransfer.getData('text');
@@ -96,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lives--;
             updateLives();
             resultMessage.textContent = "틀렸습니다!";
-            modalText.innerHTML = `${trashItem.text}는 ${binType} 분리수거함에 잘못 분리되었습니다.<br>올바른 분리수거함은 ${trashItem.type} 입니다. ${getIncorrectExplanation(trashItem)}`;
+            modalText.innerHTML = `${trashItem.text}는 ${binType} 분리수거함에 잘못 분리되었습니다.<br><br>${getIncorrectExplanation(trashItem)}`;
         }
         scoreDisplay.textContent = score;
         explanationModal.style.display = "block";
@@ -140,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         trashContainer.innerHTML = '';
         bins.forEach(bin => {
             bin.removeEventListener('dragover', dragOver);
+            bin.removeEventListener('dragleave', dragLeave);
             bin.removeEventListener('drop', drop);
         });
         showRestartButton();
@@ -155,8 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     bins.forEach(bin => {
         bin.addEventListener('dragover', dragOver);
+        bin.addEventListener('dragleave', dragLeave);
         bin.addEventListener('drop', drop);
     });
+    
     
     // 다시 시작하기 버튼을 숨김
     restartButton.classList.add('hidden');
@@ -218,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 '전자제품': "전자제품은 전자제품 수거함에 배출하거나, <br>재사용할 수 있는 경우 기부할 수 있습니다.",
                 '건전지': "건전지는 폐건전지 수거함에 배출해주세요.",
                 '형광등': "형광등은 폐형광등 수거함에 배출해주세요.",
-                '화장품': "화장품 용기는 플라스틱류로 분류하여 재활용할 수 있습니다. <br>내용물을 비우고 깨끗이 헹군 후 배출해주세요."
+                '화장품': "화장품 용기는 내용물을 비우고 깨끗이 헹군 후 배출해주세요."
             }
         };
         return explanations[trashItem.type][trashItem.text];
@@ -269,12 +277,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 '전자제품': "전자제품은 전자제품 수거함에 배출하거나, <br>재사용할 수 있는 경우 기부할 수 있습니다.",
                 '건전지': "건전지는 폐건전지 수거함에 배출해주세요.",
                 '형광등': "형광등은 폐형광등 수거함에 배출해주세요.",
-                '화장품': "화장품 용기는 플라스틱류로 분류하여 재활용할 수 있습니다. <br>내용물을 비우고 깨끗이 헹군 후 배출해주세요."
+                '화장품': "화장품 용기는 내용물을 비우고 깨끗이 헹군 후 배출해주세요."
             }
         };
-        return `다음 번에는 ${trashItem.text}를 ${trashItem.type} 분리수거함에 올바르게 분리해 주세요.<br><br>${explanations[trashItem.type][trashItem.text]}`;
+        return `${explanations[trashItem.type][trashItem.text]}<br><br>다음 번에는 ${trashItem.text}를 ${trashItem.type} 분리수거함에 올바르게 분리해 주세요.`;
     }
     closeBtn.addEventListener('click', closeModal);
+
     function openModal(text) {
         modalText.textContent = text;
         modal.style.display = 'block';
